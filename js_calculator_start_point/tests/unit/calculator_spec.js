@@ -41,4 +41,11 @@ describe('calculator', function () {
     assert.strictEqual(result, 1);
   })
 
+  it(`can register the number that has been be clicked and concat the number to the running total if a number has already been clicked`, () => {
+    calculator.numberClick(`1`);
+    calculator.numberClick(`7`);
+    const result = calculator.runningTotal;
+    assert.strictEqual(result, 17);
+  })
+
 });
