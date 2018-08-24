@@ -14,4 +14,11 @@ describe('calculator', function () {
     assert.strictEqual(result, 5)
   })
 
+  it('can subtract 4 from 7 to get 3', function(){
+    calculator.previousTotal = `7`;
+    calculator.subtract(`4`);
+    const result = calculator.runningTotal;
+    assert.strictEqual(result, 3)
+  })
+
 });
