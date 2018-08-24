@@ -28,4 +28,11 @@ describe('calculator', function () {
     assert.strictEqual(result, 15)
   })
 
+  it('can divide 21 by 7 to get 3', function(){
+    calculator.previousTotal = `21`;
+    calculator.divide(`7`);
+    const result = calculator.runningTotal;
+    assert.strictEqual(result, 3)
+  })
+
 });
