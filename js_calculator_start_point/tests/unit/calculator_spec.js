@@ -21,4 +21,11 @@ describe('calculator', function () {
     assert.strictEqual(result, 3)
   })
 
+  it('can multiply 3 and 5 to get 15', function(){
+    calculator.previousTotal = `3`;
+    calculator.multiply(`5`);
+    const result = calculator.runningTotal;
+    assert.strictEqual(result, 15)
+  })
+
 });
