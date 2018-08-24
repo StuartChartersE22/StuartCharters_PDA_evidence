@@ -14,7 +14,7 @@ describe('calculator functionality', function() {
     running_total = element(by.css('#running_total'))
     element(by.css('#number2')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('2')
-  })
+  });
 
   it('should have working number buttons', function(){
     running_total = element(by.css('#running_total'))
@@ -23,7 +23,16 @@ describe('calculator functionality', function() {
     element(by.css('#number3')).click();
     element(by.css('#operator_add')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('5')
-  })
+  });
 
+  it('should have working number buttons', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number3')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#operator_add')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('10')
+  });
 
 });
