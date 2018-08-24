@@ -12,27 +12,33 @@ describe('calculator', function () {
     calculator.add(`4`);
     const result = calculator.runningTotal;
     assert.strictEqual(result, 5)
-  })
+  });
 
   it('can subtract 4 from 7 to get 3', function(){
     calculator.previousTotal = `7`;
     calculator.subtract(`4`);
     const result = calculator.runningTotal;
     assert.strictEqual(result, 3)
-  })
+  });
 
   it('can multiply 3 and 5 to get 15', function(){
     calculator.previousTotal = `3`;
     calculator.multiply(`5`);
     const result = calculator.runningTotal;
     assert.strictEqual(result, 15)
-  })
+  });
 
   it('can divide 21 by 7 to get 3', function(){
     calculator.previousTotal = `21`;
     calculator.divide(`7`);
     const result = calculator.runningTotal;
     assert.strictEqual(result, 3)
+  });
+
+  it(`can register the number that has been be clicked and make that the running totla to start`, () => {
+    calculator.numberClick(`1`);
+    const result = calculator.runningTotal;
+    assert.strictEqual(result, 1);
   })
 
 });
