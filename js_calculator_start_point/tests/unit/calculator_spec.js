@@ -54,6 +54,21 @@ describe('calculator', function () {
     calculator.operatorClick(`+`);
     const result = calculator.runningTotal;
     assert.strictEqual(result, 2)
+  });
+
+  it(`can clear the screen if incorrect numbers selected, but keep the existing running total`, () => {
+    calculator.numberClick(`1`);
+    calculator.operatorClick(`+`);
+    calculator.numberClick(`2`);
+    calculator.operatorClick(`=`);
+    calculator.operatorClick(`+`);
+    calculator.numberClick(`2`);
+    calculator.clearClick();
+    calculator.numberClick(`3`);
+    calculator.operatorClick(`=`);
+
+    const result = calculator.previousTotal;
+    assert.strictEqual(result, 6)
   })
 
 });
