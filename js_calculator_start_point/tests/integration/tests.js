@@ -16,7 +16,7 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('2')
   });
 
-  it('should have working number buttons', function(){
+  it('should update the display with teh current total when an operator is clicked', function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number2')).click();
     element(by.css('#operator_add')).click();
@@ -25,7 +25,7 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('5')
   });
 
-  it('should have working number buttons', function(){
+  it('should be able to add the current total to itself if the add button is clicked twice', function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number2')).click();
     element(by.css('#operator_add')).click();
@@ -34,5 +34,15 @@ describe('calculator functionality', function() {
     element(by.css('#operator_add')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('10')
   });
+
+  it(`should display negative sign before numbers if the current total is less than 0`, () => {
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number3')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-1')
+
+  })
 
 });
