@@ -7,8 +7,11 @@ describe('calculator', function () {
   });
 
   // write unit tests here in the form of "it should do something..."
-  it('it has a sample test', function(){
-    assert.equal(true, true)
+  it('can add 1 and 4 to get 5', function(){
+    calculator.previousTotal = `1`;
+    calculator.add(`4`);
+    const result = calculator.runningTotal;
+    assert.strictEqual(result, 5)
   })
 
 });
