@@ -48,4 +48,12 @@ describe('calculator', function () {
     assert.strictEqual(result, 17);
   })
 
+  it(`can add the running total to itself when add is clicked twice`, () => {
+    calculator.numberClick(`1`);
+    calculator.operatorClick(`+`);
+    calculator.operatorClick(`+`);
+    const result = calculator.runningTotal;
+    assert.strictEqual(result, 2)
+  })
+
 });
